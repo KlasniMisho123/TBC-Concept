@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9fafa;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0px 47px;
+  background-color: white;
+  gap: 32px;
+  border-bottom: 0.8px solid rgb(238, 241, 241);
+  box-sizing: border-box;
+  font-family: TBCX, sans-serif;
+}
+
+.header-flex div {
+  height: 100%;
+  align-content: center;
+}
+
+.header-logo {
+  display: flex;
+  width: auto;
+  height: 80px;
+  cursor: pointer;
+}
+
+.layer-1 {
+  max-width: 100%;
+  margin: 15% 0;
+  width: 165px;
+  opacity: 65%;
+}
+
+.navbar{
+  display: flex;
+  gap: 32px;
+  line-height: 27.2px;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  margin: 0px 40px;
+
+}
+
+.navbar div {
+  cursor: pointer;
+}
+
+
+.buttons-div {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.buttons-div div {
+  height: 40px;
+}
+
+.buttons-div  div {
+  cursor: pointer;
+}
+
+.search-logo {
+  padding: 13px 8px 8px 8px;
+  opacity: 65%;
+}
+
+.nakrebi-div {
+  display: flex;
+  align-items: center;
+  color: rgb(24, 44, 192);
+  letter-spacing: 0.3px;
+  font-size: 16px;
+  font-weight: 900;
+  gap: 8px;
+}
+
+.arrow-icon {
+  padding-top: 5px;
+}
+
+.leanguage-div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 17px;
+  color: rgb(85, 95, 98);
+  padding: 0px 8px;
+  letter-spacing: 0.7px;
+  border-radius: 3px;
+  
+}
+
+.leanguage-div div {
+  height: 40px !important;
+}
+
+.earth-logo {
+  padding-top: 5px;
+  opacity: 100%;
+}
+
+.search-logo:hover {
+  color: rgb(50, 149, 206);
+}
+
+.nakrebi-div:hover {
+  color: rgb(50, 149, 206);
+}
+
+.leanguage-div:hover {
+  height: 36px;
+  background-color: rgb(238, 241, 241);
+  transition-delay: 0s;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+}
