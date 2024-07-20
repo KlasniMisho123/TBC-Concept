@@ -2,10 +2,35 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+}
+
+.padding-default {
+  padding: 0 47px;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  font-family: TBCX, sans-serif;
+  height: 1000vh;
   background-color: #f9fafa;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  z-index: 1000;
+  border-bottom: 0.8px solid rgb(238, 241, 241);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 47px;
+  gap: 32px;
 }
 
 .header-flex {
@@ -14,13 +39,8 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
-  padding: 0px 47px;
-  background-color: white;
-  gap: 32px;
-  border-bottom: 0.8px solid rgb(238, 241, 241);
-  box-sizing: border-box;
-  font-family: TBCX, sans-serif;
+  height: 100%;
+  gap: 17px;
 }
 
 .header-flex div {
@@ -126,4 +146,231 @@ body {
   transition-delay: 0s;
   transition-duration: 0.25s;
   transition-timing-function: ease-in-out;
+}
+
+.main-content {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-text-div {
+  padding: 24px 47px;
+  color: #4a4f51;
+}
+
+.main-text {
+  margin: 0 166px;
+  font-size: 13px;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+}
+
+.top-section {
+  padding: 32px 47px 60px 47px;
+  font-weight: bold;
+  height: 452px;
+}
+
+.concept-banner {
+  margin: 0 166px;
+  position: relative;
+}
+
+.banner * {
+  height: 376.350px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 1;
+  filter: brightness(0.7);
+}
+
+.overlay-div {
+  max-width: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: start;
+  z-index: 2;
+  line-height: 27.2px;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+}
+
+
+.banner-title {
+  height: 42px;
+  color: white;
+  font-family: TBCX,sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin: 0px;
+}
+
+.banner-span {
+  color: white;
+  font-family: TBCX,sans-serif;
+  font-size: 18px;
+}
+
+.banner-btn {
+  margin-top: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  height: 50px;
+  width: 152px;
+  padding: 16px 24px;
+  background-image: linear-gradient(15deg, #001682, #3240e5);
+}
+
+.banner-btn-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-btn:hover {
+  background-image: none;
+  background-color: rgb(50, 149, 206);
+}
+
+.banner-btn-text {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: TBCX,sans-serif;
+}
+
+.message-conteiner {
+  padding:  82px 47px 60px 47px; 
+}
+
+.mid-message{
+  margin: 0 166px;
+  font-size: 40px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(20, 23, 25);
+  text-size-adjust: 100%;
+  letter-spacing: 0.5px;
+}
+
+.mid-message span {
+  color: rgb(20, 23, 25);
+  font-size: 26px;
+}
+
+.mid-content {
+  padding: 60px 0 0 0;
+  margin: 0 166px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.mid-header h2{
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  line-height: 36px;
+}
+
+.nakrebi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 256px);
+  gap: 30px;
+  width: 100%;
+  color: white;
+}
+
+
+.nakrebi-grid h3{
+  font-size: 24px;
+  letter-spacing: 0.3px;
+  font-weight: 700;
+}
+
+.digital{
+  background-image: url("https://static.tbcconcept.ge/desktop/media/mfvvitla.0j5430128849_7213815365374065_9017687812435872577_n.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 2;
+  cursor: pointer;
+  transition: background-size 1.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Even smoother transition */
+}
+
+.digital:hover{
+  background-size: 110%;
+}
+
+
+.c-360 {
+  background-image: url('https://static.tbcconcept.ge/desktop/media/nqeaa1rb.avl360.png');
+  grid-row: span 2;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 2;
+  cursor: pointer;
+  transition: background-size 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.c-360:hover {
+  background-size: 105%;
+}
+
+.premium {
+  background-image: url('https://static.tbcconcept.ge/desktop/media/0m25n3qt.w03prem.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: 2;
+  cursor: pointer;
+  transition: background-size 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.premium:hover {
+  background-size: 110%;
+}
+
+
+
+.grid-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 40px;
+  height: 100%;
+}
+
+.info-link {
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  
+}
+
+.info-link a{
+  margin-top: 2px;
+  text-decoration-color: rgb(255, 255, 255);
+  text-decoration-style: solid;
+  color: white;
+}
+
+.info-link:hover {
+  opacity: 70%;
+  transition-duration: 0.6s;
 }
