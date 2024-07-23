@@ -1,7 +1,0 @@
-https://tbcconcept.ge/ge
-
-Feaetures:
-
-1. title logo size
-2. TBCX font
-3. scrollbar
