@@ -2,7 +2,14 @@ https://tbcconcept.ge/ge
 
 Feaetures:
 
-1. title logo fix!
-2. header logo align-items:center !
-3. TBCX font
-4. grid url transitions
+1. title logo size
+2. TBCX font
+3. scrollbar
+
+Tasks-Todo:
+
+1. menu
+2. web scroll
+3. flex scrolls, grabable
+4. responsive
+5. code explain.
