@@ -37,32 +37,6 @@ body {
   background-color: #f9fafa;
 }
 
-.btn-meniu {
-  align-items: center;
-  position: fixed;
-  padding: 16px;
-  background-color: #424a4d;
-  z-index: 1000;
-  right: 28px;
-  bottom: 40px;
-  border-radius: 50%;
-  transition: opacity ease-in-out 0.25s;
-}
-
-.btn-meniu:hover {
-  opacity: 80%;
-  cursor: pointer;
-}
-
-.btn-meniu-icon {
-  display: flex;
-  align-items: center;
-}
-
-.btn-meniu-icon svg{
-  fill: white;
-}
- 
 
 header {
   position: fixed;
@@ -194,9 +168,15 @@ header {
 }
 
 .language-form:hover {
-  background-color: rgb(238, 241, 241);
   cursor: auto;
 }
+
+.language-form{
+  width: 100%;
+  text-align: center;
+  border-radius: 3px;
+}
+
 
 .leanguage-list:hover {
   background-color: rgb(238, 241, 241);
@@ -220,11 +200,15 @@ header {
 
 .leanguage-div {
   display: flex;
-  flex-direction: row;
-  gap: 4px;
   align-items: center;
-  padding:  0 8px;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 17px;
   color: rgb(85, 95, 98);
+  padding: 0px 8px;
+  letter-spacing: 0.7px;
+  border-radius: 3px;
+  transition: background-color ease-in-out 0.25s;
 }
 
 .leanguage-div div {
@@ -960,19 +944,17 @@ footer {
 .footer-top{
   display: flex;
   flex-direction: row;
+  align-items: start;
   justify-content: space-between;
-  padding: 45px 0 50px 0;
+  padding: 45px 0 0 0;
+  height: 135px;
 }
-
 .leanguage-div {
   display: flex;
   flex-direction: row;
   gap: 4px;
   align-items: center;
   padding:  0 8px;
-}
-.footer-logo {
-  
 }
 
 .mid-footer {
@@ -1131,4 +1113,116 @@ footer {
 .footer-bottom-links p:hover {
   cursor: pointer;
   color: #03448a;
+}
+
+.footer-language-layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  font-size: 17px;
+  color: rgb(85, 95, 98);
+  letter-spacing: 0.7px;
+  height: 100%;
+  gap: 4px;
+}
+
+.footer-language-div {
+  height: 100%;
+}
+
+.language-hover-div {
+  display: flex;
+  align-items: center; 
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 3px;
+  gap: 4px;
+  transition: background-color ease-in-out 0.25s;
+}
+
+.language-hover-div:hover {
+  background-color: rgb(238, 241, 241);
+}
+
+.footer-leanguage-list-wrap {
+  width: 100%;
+  padding: 8px 0;
+  border: 0.8px solid rgb(225, 228, 229);
+  border-radius: 4px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+
+.SMASH {
+
+}
+
+
+.btn-menu {
+  align-items: center;
+  padding: 16px;
+  background-color: #424a4d;
+  border-radius: 50%;
+  transition: opacity ease-in-out 0.25s;
+}
+
+.btn-menu:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.btn-menu-icon {
+  display: flex;
+  align-items: center;
+}
+
+.btn-menu-icon svg{
+  fill: white;
+}
+
+.menu-btn-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 28px;
+  bottom: 40px;
+  gap: 16px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.drop-btn-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: black;
+}
+
+.drop-btn-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13.2px;
+  border: 0.8px solid rgb(238, 241, 241);
+  background-color: white;
+  border-radius: 50%;
+  transition: opacity ease-in-out 0.25s;
+}
+
+.drop-btn-item:hover {
+  background-color: rgb(50, 149, 206);
+}
+
+.drop-btn-item:hover svg{
+  fill: white;
+}
+
+.drop-btn-item svg{
+  height: 28px;
+  width: 28px;
 }
