@@ -211,6 +211,33 @@ document.addEventListener("DOMContentLoaded", function() {
         popUpCloseElement.addEventListener("click", function() {
           addedContent.remove()
         })
+
+        let isCheckBoxActive = false;
+        const checkBoxElement = document.querySelector('.checkbox');
+
+        checkBoxElement.addEventListener("click", function() {
+            checkboxActivation();
+        });
+
+        function checkboxActivation() {
+            if (!isCheckBoxActive) {
+                checkBoxElement.style.backgroundColor = 'blue';
+              checkBoxElement.style.backgroundImage = 'url("https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg")'; 
+              checkBoxElement.style.backgroundSize = 'cover';
+              checkBoxElement.style.border = "0.8px solid blue";
+
+              isCheckBoxActive = true;
+          } else {
+              checkBoxElement.style.backgroundColor = '';
+              checkBoxElement.style.backgroundImage = '';
+              checkBoxElement.style.backgroundSize = '';
+              checkBoxElement.style.border = "";
+              isCheckBoxActive = false;
+          }
+
+}
+        
+
       });
 
       const popUpSection = ` 
@@ -236,35 +263,35 @@ document.addEventListener("DOMContentLoaded", function() {
                     <input type="text" maxlength="256" required="required" class="name&surname" placeholder=" ">
                     <label>${popUpText[2]}</label>
                   </div>
-                  <p class="input-error-message">${popUpText[-1]}</p>
+                  <p class="input-error-message">${popUpText[9]}</p>
                 </div>
                 <div class="input-wapper">
                   <div class="input-color">
-                    <input type="text" maxlength="256" required="required" class="number" placeholder=" ">
+                    <input type="number" maxlength="256" required="required" class="number" placeholder=" ">
                     <label>${popUpText[3]}</label>
                   </div>
-                  <p class="input-error-message">${popUpText[-1]}</p>
+                  <p class="input-error-message">${popUpText[9]}</p>
                 </div>
                 <div class="input-wapper">
                   <div class="input-color">
                     <input type="text" maxlength="256" required="required" class="mail" placeholder=" ">
                     <label>${popUpText[4]}</label>
                   </div>
-                  <p class="input-error-message">${popUpText[-1]}</p>
+                  <p class="input-error-message">${popUpText[9]}</p>
                 </div>
                 <div class="input-wapper">
                   <div class="input-color">
                     <input type="text" maxlength="256" required="required" class="company" placeholder=" ">
                     <label>${popUpText[5]}</label>
                   </div>
-                  <p class="input-error-message">${popUpText[-1]}</p>
+                  <p class="input-error-message">${popUpText[9]}</p>
                 </div>
                 <div class="input-wapper">
                   <div class="input-color">
                     <textarea maxlength="256" required="required" class="text-input" ></textarea>
                     <label>${popUpText[6]}</label>
                   </div>
-                  <p class="input-error-message">${popUpText[-1]}</p>
+                  <p class="input-error-message">${popUpText[9]}</p>
                 </div>
                 <div class="checkbox-wrapper">
                   <div class="checkbox">  </div>
@@ -278,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   <div class="arrow-icon">
                     <svg data-v-e6dc0f1c="" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path data-v-e6dc0f1c="" d="M9.7987 2.86675L14.4654 7.53341C14.732 7.80008 14.732 8.20008 14.4654 8.46675L9.7987 13.1334C9.53203 13.4001 9.13203 13.4001 8.86537 13.1334C8.5987 12.8667 8.5987 12.4667 8.86537 12.2001L12.3987 8.66675H1.9987C1.5987 8.66675 1.33203 8.40008 1.33203 8.00008C1.33203 7.60008 1.5987 7.33341 1.9987 7.33341H12.3987L8.86537 3.80008C8.73203 3.66675 8.66536 3.53341 8.66536 3.33341C8.66536 3.13341 8.73203 3.00008 8.86537 2.86675C9.13203 2.60008 9.53203 2.60008 9.7987 2.86675Z"></path></svg>
                   </div>
-                  <div>${popUpText[9]}</div>
+                  <div class="send-btn-text">${popUpText[7]}</div>
                 </button>
               </div>
             </div>
