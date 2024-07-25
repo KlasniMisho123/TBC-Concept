@@ -776,27 +776,8 @@ header {
   font-weight: 900;
 }
 
-.swiper-nav-arrows {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.arrow-flex {
-  margin-right: -11px;
-  display: flex;
-  gap: 16px;
-}
-
-.sweeper-arrow {
-  color: rgb(165, 170, 172);
-}
-
-.sweeper-arrow:active {
-  color: rgb(24, 44, 192)
-}
-
 .private-banker-section {
-  padding: 32px 0 60px 0;
+  padding: 32px 0 0 0;
   height: calc(365px + 92px);
   margin: 0 166px;
 }
@@ -1278,6 +1259,7 @@ footer {
   background-color: rgba(20, 23, 25, .5);
   z-index: 1001;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .form-popup {
@@ -1290,6 +1272,7 @@ footer {
   right: 0;
   z-index: 1002;
   overflow: hidden;
+  cursor: default;
 }
 
 .top-popup-section, .bottom-popup-section {
@@ -1386,12 +1369,19 @@ footer {
   gap: 16px;
   max-height: calc(100vh - 180px);
   overflow-y: auto;
+  overflow-x: hidden; 
   padding: 10px;
 }
+
 
 .text-input {
   height: 112px;
   width: 100%;
+  padding: 25px; 
+  box-sizing: border-box;
+  resize: vertical;
+  color: rgb(85, 95, 98);
+  top: 15px;
 }
 
 .checkbox-wrapper {
@@ -1425,7 +1415,7 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
-  width: 100%;
+  width: 95%;
   background-color: rgb(233, 235, 236);
   border: 0.8px solid rgb(165, 170, 172);
   border-radius: 4px;
