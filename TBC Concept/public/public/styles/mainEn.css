@@ -90,7 +90,7 @@ header {
   gap: 32px;
   line-height: 27.2px;
   font-size: 18px;
-  letter-spacing: 0.3px;
+
   margin: 0px 40px;
   font-size: 16px;
 }
@@ -776,27 +776,8 @@ header {
   font-weight: 900;
 }
 
-.swiper-nav-arrows {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.arrow-flex {
-  margin-right: -11px;
-  display: flex;
-  gap: 16px;
-}
-
-.sweeper-arrow {
-  color: rgb(165, 170, 172);
-}
-
-.sweeper-arrow:active {
-  color: rgb(24, 44, 192)
-}
-
 .private-banker-section {
-  padding: 32px 0 60px 0;
+  padding: 32px 0 0 0;
   height: calc(365px + 92px);
   margin: 0 166px;
 }
@@ -1186,12 +1167,12 @@ footer {
 .menu-btn-flex {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   right: 28px;
   bottom: 40px;
   gap: 16px;
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .drop-btn-flex {
@@ -1223,4 +1204,252 @@ footer {
 .drop-btn-item svg{
   height: 28px;
   width: 28px;
+}
+
+.comment-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-menu_tooltip {
+  display: flex;
+  border: 0px solid transparent;
+}
+
+.button-menu_tooltip-text {
+  display: flex;
+  align-items: center;
+  background-color: rgb(66, 74, 77);
+  border: 0.8px solid rgb(66, 74, 77);
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  margin-right: -1px;
+  font-size: 16px;
+}
+
+.button-menu_tooltip-arrow {
+  display: flex;
+  align-items: center;
+}
+
+.comment-div {
+  opacity: 0%;
+  transition: opacity ease-in-out 0.3s;
+}
+
+.onclick-mail {
+
+}
+
+.form-popup-wrap {
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 23, 25, .5);
+  z-index: 1001;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.form-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 600px;
+  height: 100%;
+  right: 0;
+  z-index: 1002;
+  overflow: hidden;
+  cursor: default;
+}
+
+.top-popup-section, .bottom-popup-section {
+  padding: 32px 56px;
+  color: black;
+  border-bottom: 0.8px solid rgb(238, 241, 241);
+}
+
+.mid-popup-section {
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: rgb(85, 95, 98);
+  overflow: hidden;
+}
+
+.bottom-popup-section {
+  border-top: 0.8px solid rgb(238, 241, 241);
+  border-bottom: 0px;
+  bottom: 0;
+}
+
+.mid-popup-section p {
+  font-size: 18px;
+  line-height: 27.2px;
+}
+
+.top-popup-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-close div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  padding: 8px;
+  background-color: rgb(238, 241, 241);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input-wapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.input-wapper p {
+  color: red;
+  line-height: 20.4px;
+  font-size: 12px;
+}
+
+.input-color {
+  position: relative;
+}
+
+.input-color input {
+  padding: 22px 12px 8px 12px;
+  border-radius: 4px;
+  border: 0.8px solid gray;
+  width: 100%;
+  background-color: transparent;
+}
+
+.input-color label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  line-height: 23.8px;
+  color: rgb(85, 95, 98);
+  pointer-events: none; 
+  transition: all 0.2s ease; 
+}
+
+.input-color input:focus + label,
+.input-color input:not(:placeholder-shown) + label {
+  top: 15px;
+  font-size: 12px;
+  color: rgb(85, 95, 98);
+}
+
+.mid-popup-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  overflow-x: hidden; 
+  padding: 10px;
+}
+
+
+.text-input {
+  height: 112px;
+  width: 100%;
+  padding: 25px; 
+  box-sizing: border-box;
+  resize: vertical;
+  color: rgb(85, 95, 98);
+  top: 15px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.checkbox-wrapper span{
+  font-size: 14px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.8px solid rgb(188, 193, 194);
+  height: 18px;
+  width: 20px;
+  border-radius: 2px;
+  background-color:rgb(249, 250, 250);
+}
+
+
+.checkbox:hover {
+  border: 0.8px solid rgb(24, 44, 192);
+}
+
+.send-info-button {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  width: 95%;
+  background-color: rgb(233, 235, 236);
+  border: 0.8px solid rgb(165, 170, 172);
+  border-radius: 4px;
+  color: rgb(165, 170, 172);
+}
+
+.mail-sent {
+  
+}
+
+.mail-sent-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 56px;
+}
+
+.mail-sent-logo {
+  display: flex;
+  align-items: center;
+}
+
+.mail-sent-title {
+  font-size: 24px;
+}
+.mail-sent-message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drop-btn-item {
+  text-decoration: none;
+  color: rgb(85, 95, 98);
 }
