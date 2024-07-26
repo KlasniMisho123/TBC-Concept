@@ -1,0 +1,21 @@
+https://tbcconcept.ge/ge
+
+Feaetures:
+
+1. title logo size
+2. TBCX font
+3. scrollbar
+
+Tasks-Todo:
+
+1. mail sent - databasebit? // mailit
+2. flex scrolls, grabable
+3. responsive
+4. code explain.
+
+notebi - gegastvis:
+
+2. error resend -> reset form by removeing? and aadding again?
+3. send email
+4. offers / awards scroll ->?
+5. award arrows - !?

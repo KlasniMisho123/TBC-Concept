@@ -77,6 +77,42 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
+    // start grabbable flex
+
+    function makeScrollableWithDrag(element) {
+      let isDragging = false;
+      let startX, scrollLeft;
+  
+      element.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX - element.offsetLeft;
+          scrollLeft = element.scrollLeft;
+      });
+  
+      element.addEventListener('mouseleave', () => {
+          isDragging = false;
+      });
+  
+      element.addEventListener('mouseup', () => {
+          isDragging = false;
+      });
+  
+      element.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          const x = e.pageX - element.offsetLeft;
+          const walk = (x - startX) * 2.5; 
+          element.scrollLeft = scrollLeft - walk;
+      });
+    }
+    
+    const offerFlexElement = document.querySelector('.offers-flex');
+    const awardsFlexElement = document.querySelector('.award-item-flex');
+    
+    makeScrollableWithDrag(offerFlexElement);
+    makeScrollableWithDrag(awardsFlexElement);
+    // end grabbable flex
+
     const menuBtnElement = document.querySelector('.btn-menu');
     const menuFlexElement = document.querySelector('.menu-btn-flex');
     const btnMenuIconElement = document.querySelector(".btn-menu-icon")
@@ -205,8 +241,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "კომპანია",
         "ტექსტი",
         "გაგზავნა",
-        "ვეთახნმები წესები და პირობები",
-        "აუცილებელი ველი"
+        "ვეთახნმები წესებს და პირობებს",
+        "აუცილებელი ველი",
+        "ტელეფონის ნომრის მინიმალური სიგრძე უნდა იყოს 9 ციფრი",
+        "ელფოსტის მისამართი არ არის ვალიდური",
+        "მონიშნეთ Checkbox-ი"
       ];
 
       const popUpTextEng = [
@@ -219,7 +258,10 @@ document.addEventListener("DOMContentLoaded", function() {
         "Text",
         "Send",
         "I agree to the terms and conditions",
-        "Required field"
+        "Required field",
+        "Phone number min length should be 9 digits",
+        "Email address is invalid",
+        "Checkbox must be marked"
       ];
 
       let popUpAdded = false;
@@ -251,13 +293,26 @@ document.addEventListener("DOMContentLoaded", function() {
               checkBoxElement.style.backgroundImage = 'url("https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg")'; 
               checkBoxElement.style.backgroundSize = 'cover';
               checkBoxElement.style.border = "0.8px solid blue";
-
+              
+              const errorContent = document.querySelector('.checkbox-error');
+              if (errorContent) {
+                errorContent.classList.remove('show');
+              }
+            
               isCheckBoxActive = true;
           } else {
               checkBoxElement.style.backgroundColor = '';
               checkBoxElement.style.backgroundImage = '';
               checkBoxElement.style.backgroundSize = '';
               checkBoxElement.style.border = "";
+
+              const checkboxErrorElement = document.querySelector('.checkbox-error-div');
+
+              const errorContent = checkboxErrorElement.querySelector('.checkbox-error');
+                if (errorContent) {
+                  errorContent.classList.add('show');
+                }
+
               isCheckBoxActive = false;
           }
         }
@@ -393,10 +448,11 @@ document.addEventListener("DOMContentLoaded", function() {
             sendBtnElement.setAttribute('type', 'submit');
 
             sendBtnElement.addEventListener('click', mailSuccessfullySent)
+            
             //after sent succesfully -reset !ERR!
+            //after sent succesfully - send on mail !ERR!
 
         } else {
-
             sendBtnElement.style.backgroundImage = "";
             sendBtnElement.style.borderColor = "";
             sendBtnElement.style.color = "";
@@ -415,34 +471,65 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         }
 
-        // pirbelze mushaobs marto !ERR!
-        const infoInputElement = document.querySelector('.info-input')
-        
+        const infoInputElements = document.querySelectorAll('.info-input')
 
-        infoInputElement.addEventListener('blur', function() {
-          const infoInputP = document.querySelector(`.${infoInputElement.classList[1]}-p`);
-          const inputLength = infoInputElement.value.length
-          if(inputLength == 0) {
-            infoInputP.innerHTML = popUpText[9];
-          } else {
-            infoInputP.innerHTML = '';
-          }
-        })
+        infoInputElements.forEach(element => {
 
-        infoInputElement.addEventListener('focus', function() {
-          const infoInputP = document.querySelector(`.${infoInputElement.classList[1]}-p`);
-          const inputLength = infoInputElement.value.length
-          if(inputLength == 0) {
-            infoInputP.innerHTML = popUpText[9];
-          } else {
-            infoInputP.innerHTML = '';
-          }
-        })
-        
-      });
+          function errorhandle() {
+
+            if(element.classList[1] === "company") {
+
+            } else if (element.classList[1] === "number") {
+              const errorPElement = document.querySelector(`.${element.classList[1]}-p`);
+              const inputLength = element.value.length;
+          
+              if (inputLength === 0) {
+                errorPElement.innerHTML = popUpText[9];
+              } else if (inputLength < 9) {
+                errorPElement.innerHTML = popUpText[10];
+              } else {
+                errorPElement.innerHTML = '';
+              }
+          
+            } else if (element.classList[1] === "email") {
+              const errorPElement = document.querySelector(`.${element.classList[1]}-p`);
+              const inputLength = element.value.length;
+          
+              if (inputLength === 0) {
+                errorPElement.innerHTML = popUpText[9];
+              } else if (!validateEmail(element.value)) {
+                errorPElement.innerHTML = popUpText[11];
+              } else {
+                errorPElement.innerHTML = '';
+              }
+          
+            } else {
+              const errorPElement = document.querySelector(`.${element.classList[1]}-p`);
+              const inputLength = element.value.length;
+          
+              if (inputLength === 0) {
+                errorPElement.innerHTML = popUpText[9];
+              } else {
+                errorPElement.innerHTML = '';
+              }
+            }
+
+              function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+              }
+            }
+
+            element.addEventListener('blur', errorhandle)
+            element.addEventListener('focus', errorhandle)
+            
+
+          })  
+
+        });
 
       const popUpSection = ` 
-        <div class="form-popup-wrap">
+        <div class="form-popup-wrap " id="popup-for">
             <div class="form-popup">
               <div class="top-popup-section">
                 <div class="top-popup-flex">
@@ -494,7 +581,13 @@ document.addEventListener("DOMContentLoaded", function() {
                       <label>${popUpText[6]}</label>
                       <span class='letter-count infoText-p'> </span>
                     </div>
-                    <p class="input-error-message "></p>
+                    <p class="input-error-message text-input-p"></p>
+                  </div>
+                  <div class='checkbox-error-div'>
+                    <div class="checkbox-error show">
+                      <img  class='checkbox-error-img' src="../assets/warning.png">
+                      <p class="checkbox-error-msg"> ${popUpText[12]} </p>
+                    </div>
                   </div>
                   <div class="checkbox-wrapper">
                     <input  type="checkbox" required="required" class="checkbox"> 
@@ -518,27 +611,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
       const mailSentGeo =
        `
-                  <div class="mail-sent-div">
-                    <div class="mail-sent-logo">
-                      <img data-v-e6dc0f1c="" src="https://cdn0.iconfinder.com/data/icons/shift-symbol/32/Complete_Symbol-512.png" loading="lazy" width="72" height="72" alt="Done" class="popup-form_success-icon">
-                    </div>
-                    <div class="mail-sent-message">
-                      <h2 class="mail-sent-title"> წარმატებით გაიგზავნა</h2>
-                      <p> დაგიკავშირდებით </p>
-                    </div>
-                  </div>
+        <div class="mail-sent-div">
+          <div class="mail-sent-logo">
+            <img data-v-e6dc0f1c="" src="https://cdn0.iconfinder.com/data/icons/shift-symbol/32/Complete_Symbol-512.png" loading="lazy" width="72" height="72" alt="Done" class="popup-form_success-icon">
+          </div>
+          <div class="mail-sent-message">
+            <h2 class="mail-sent-title"> წარმატებით გაიგზავნა</h2>
+            <p> დაგიკავშირდებით </p>
+          </div>
+        </div>
       `
       const mailSentEng =
        `
-                  <div class="mail-sent-div">
-                    <div class="mail-sent-logo">
-                      <img data-v-e6dc0f1c="" src="https://cdn0.iconfinder.com/data/icons/shift-symbol/32/Complete_Symbol-512.png" loading="lazy" width="72" height="72" alt="Done" class="popup-form_success-icon">
-                    </div>
-                    <div class="mail-sent-message">
-                      <h2 class="mail-sent-title"> Message Sent succesfully </h2>
-                      <p> We'll be in touch </p>
-                    </div>
-                  </div>
+        <div class="mail-sent-div">
+          <div class="mail-sent-logo">
+            <img data-v-e6dc0f1c="" src="https://cdn0.iconfinder.com/data/icons/shift-symbol/32/Complete_Symbol-512.png" loading="lazy" width="72" height="72" alt="Done" class="popup-form_success-icon">
+          </div>
+          <div class="mail-sent-message">
+            <h2 class="mail-sent-title"> Message Sent succesfully </h2>
+            <p> We'll be in touch </p>
+          </div>
+        </div>
       `
 
     }

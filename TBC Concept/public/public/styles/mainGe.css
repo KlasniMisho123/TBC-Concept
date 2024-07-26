@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -410,20 +414,10 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  color: white;
-}
-
-
-.grid-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 20px;
   padding: 40px;
-  height: 100%;
+  color: white;
+  box-sizing: border-box; /* Ensures padding is included in the width and height */
 }
-
 
 
 .info-link {
@@ -508,6 +502,23 @@ header {
 .offers-section {
   padding: 60px 0;
   margin: 0 166px;
+}
+
+.offers-flex:active {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: grabbing;
+}
+
+.offers-flex {
+  cursor: grab;
+}
+
+.offers-flex a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .offers-header-flex {
@@ -691,6 +702,7 @@ header {
   background-color: white;
   border: 0.8px solid rgb(225, 228, 229);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .get-app-buttons img {
@@ -756,12 +768,13 @@ header {
 }
 
 .product-item-desc p {
+  box-sizing: border-box;
   line-height: 23.8px;
   font-size: 14px;
   color: rgb(85, 95, 98);
   font-weight: 400;
-  display: -webkit-box;
   -webkit-line-clamp: 4; 
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -811,6 +824,7 @@ header {
 .banner-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -820,9 +834,9 @@ header {
   font-size: 14px;
   background-image: linear-gradient(15deg, #001682, #3240e5);
   color: white;
-  display: flex;
-  justify-content: center;
+  box-sizing: border-box;
 }
+
 
 .banner-img {
   border-radius: 4px;
@@ -855,6 +869,11 @@ header {
 
 .award-item-flex:active {
  cursor: grabbing;
+ user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: grabbing;
 }
 
 .award-item {
@@ -1237,11 +1256,6 @@ footer {
   transition: opacity ease-in-out 0.3s;
 }
 
-
-.onclick-mail {
-
-}
-
 .form-popup-wrap {
   position: fixed;
   top: 0; 
@@ -1414,11 +1428,6 @@ footer {
   color: rgb(165, 170, 172);
 }
 
-
-.mail-sent {
-  
-}
-
 .mail-sent-div {
   display: flex;
   flex-direction: row;
@@ -1444,4 +1453,28 @@ footer {
 .drop-btn-item {
   text-decoration: none;
   color: rgb(85, 95, 98);
+}
+
+.checkbox-error {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.checkbox-error.show {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+ 
+.checkbox-error-img {
+  height: 20px;
+  width: 20px;
+}
+
+.checkbox-error-msg {
+  color: red;
+  font-size: 14px !important;
 }
