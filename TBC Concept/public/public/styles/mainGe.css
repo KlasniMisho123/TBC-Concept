@@ -62,7 +62,7 @@ header {
   justify-content: space-evenly;
   width: 100%;
   height: 100%;
-  margin: 0 166px;
+  margin: 0 10%;
   gap: 15px;
 }
 
@@ -797,7 +797,7 @@ header {
 }
 
 .banner-card {
-  position: absolute;
+  position: relative;
   overflow: hidden;
   padding: 97px 95px;
   display: flex;
@@ -942,7 +942,7 @@ footer {
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
-  padding: 45px 0 0 0;
+  padding: 45px 47px 0 47px;
   height: 135px;
 }
 .leanguage-div {
@@ -1478,3 +1478,362 @@ footer {
   color: red;
   font-size: 14px !important;
 }
+
+.responsive-section {
+
+
+}
+.mid-footer-responsive {
+    display: none;
+}
+
+.app-add-mobile-responsive {
+  display: none;
+}
+
+
+.headers-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.get-app-buttons-responsive {
+  display: none;
+}
+
+/* Media Query for 800px to 1260px */
+@media only screen and (max-width: 1260px) {
+  .header-flex,
+  .main-text,
+  .concept-banner,
+  .mid-message,
+  .mid-content,
+  .stats-flex,
+  .offers-section,
+  .app-add-flex,
+  .products-section,
+  .private-banker-section,
+  .awards-section,
+  .footer-flex,
+  .container {
+    margin: 0;
+  }
+  
+  .private-banker-section .padding-default{
+    padding: 0px;
+  }
+
+  .banner-img {
+    width: 100%;
+  }
+
+  .header-logo {
+    width: 165px;
+  }
+
+  .header-flex {
+    justify-content: space-between;
+  }
+
+  .nakrebi-text {
+    width: 160px;
+  }
+
+  .main-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .overlay-div {
+    width: 450px;
+    height: 200px;
+    padding: 80px;
+  }
+
+  .banner-title {
+    font-size: 24px;
+  }
+
+  .banner-desc {
+    font-size: 14px;
+  }
+
+  .mid-message {
+    font-size: 32px;
+  }
+
+  .private-banker-section {
+    height: 360px;
+    padding-bottom: 60px;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .award-item-title {
+    font-size: 16px;
+  }
+
+  .award-item-type {
+    font-size: 14px;
+  }
+
+  .stat-card {
+    padding: 48px 40px;
+  }
+  
+  .footer-flex * {
+    font-size: 14px;
+  }
+
+  .bottom-footer-flex {
+    justify-content: space-between;
+  }
+}
+
+/* Media Query for 800px to 1000px */
+@media only screen and (max-width: 1100px) {
+  
+  header {
+    width: 100%;
+  }
+
+  .header-logo {
+    width: 165px;
+  }
+
+  .nakrebi-text {
+    width: 160px;
+  }
+
+  .header-flex {
+    justify-content: space-between;
+  }
+
+  .banner-div {
+    height: 425px;
+    display: flex;
+  }
+
+
+
+  
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 0px 45px;
+  }
+
+  .stats-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar-btn {
+    display: flex;
+    align-items: center;
+    
+  }
+  .navbar-btn-div {
+    height: 40px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .navbar-line-1 {
+    height: 2px !important;
+    width: 11px;
+    background-color: rgb(85, 95, 98);
+  }
+  
+  .navbar-line-2 {
+    height: 2px !important;
+    width: 20px;
+    background-color: rgb(85, 95, 98);
+  }
+  
+  .navbar-line-3 {
+    height: 2px !important;
+    width: 15px;
+    background-color: rgb(85, 95, 98);
+  }
+
+  .flex-leanguage-element {
+    display: none;
+  }
+
+  .mid-footer-card {
+    width: 200px !important;
+  }
+  
+}
+
+/* doesnot take all space horisontally */
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nakrebi-grid {
+    display: flex;
+    gap: 30px; 
+    box-sizing: border-box;
+    width: 100%; /* Ensures grid takes full width of its container */
+    color: white;
+  }
+
+  .grid-item {
+    flex: 1 1 calc(50% - 30px);
+    min-width: 280px;
+    width: 100%; 
+    box-sizing: border-box;
+  }
+
+  .app-add-mobile-responsive {
+    display: block;
+  }
+
+  .app-add-img {
+    display: none;
+  }
+
+  .app-add-card {
+    width: 100%;
+  }
+  .get-app-buttons {
+    display: none;
+  }
+  
+  .app-add-card p {
+    font-size: 14px;
+  }
+
+  .app-add-card p br{
+    display: none;
+  }
+
+  .get-app-buttons-responsive {
+  
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    border: rgb(24, 44, 192) solid 0.8px;
+    padding: 16px 32px;
+    border-radius: 4px;
+  
+    background-color: rgb(249, 250, 250);
+  }
+
+  .banner-img {
+    box-sizing: border-box;
+    height: 100% !important;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .banner-card {
+    padding: 0px 45px;
+    align-self: center;
+    width: 100%;
+  }
+
+  .banner-btn {
+    width: 100%;
+  }
+
+  .top-section {
+    padding: 32px 0px 60px  0px;
+    
+  }
+  
+  .concept-banner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+
+  .overlay-div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 45px;
+    gap: 10px;
+    height: 150px;
+    padding-top: 150px;
+  }
+
+  .overlay-div * {
+    width: 100%;
+  }
+
+  .banner-btn-flex svg{
+    width: auto;
+  } 
+
+  .banner-btn-text {
+    width: auto;
+  }
+
+  .banner-span {
+    font-size: 14px;
+  }
+
+  .mid-message {
+    font-size: 28px;
+  }
+
+  .footer-top {
+  padding: 45px;
+  height: 47px;
+  }
+
+  .mid-footer {
+    display: none;
+  }
+
+  .mid-footer-responsive {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-dropdown {
+    box-sizing: border-box;
+    display: flex;
+    padding: 36px 45px;
+    border-top: 0.8px;
+    line-height: 34px;
+    border-top: 0.8px solid rgb(85, 95, 98);
+    justify-content: space-between;
+  } 
+
+  .footer-dropdown h2{
+    color: rgb(20, 23, 25);
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .footer-dropdown a {
+    color: black;
+    text-decoration: none;
+  }
+
+}
+
+
+/* 780ismere urevs */
+

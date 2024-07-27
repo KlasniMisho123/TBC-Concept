@@ -15,7 +15,10 @@ Tasks-Todo:
 
 notebi - gegastvis:
 
-2. error resend -> reset form by removeing? and aadding again?
-3. send email
-4. offers / awards scroll ->?
-5. award arrows - !?
+3. send email ///
+
+// responsive
+
+6. responsive fit // 1250px
+7. scroll problem on responsive// scrolldownze zemot tovebs.
+8. header width 1000px -- 1000px +

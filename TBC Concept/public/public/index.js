@@ -77,6 +77,26 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
+    // onclick footer-responsive
+
+    const footerDropdownElements = document.querySelectorAll(`.footer-dropdown`)
+
+    function dropDownFun() {
+
+      console.log()
+    }
+
+    footerDropdownElements.forEach(element => {
+      const footerDropdownElement = document.querySelector(`.${element.classList[1]}`)
+      footerDropdownElement.addEventListener('click', function () {
+        console.log(element.classList[1])
+      })
+      
+    });
+
+
+    
+
     // start grabbable flex
 
     function makeScrollableWithDrag(element) {
@@ -270,16 +290,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const mailBtnElement = document.querySelector(".mail-drop");
       const popUpElement = document.querySelector('header');
 
-      mailBtnElement.addEventListener("click", function() {
-        popUpElement.insertAdjacentHTML("beforeend", popUpSection)
-        const addedContent = document.querySelector(".form-popup-wrap");
-
-        const popUpCloseElement = document.querySelector('.popup-close')
-
-        popUpCloseElement.addEventListener("click", function() {
-          addedContent.remove()
-        })
-
+      function checkhandle() {
         let isCheckBoxActive = false;
         const checkBoxElement = document.querySelector('.checkbox');
 
@@ -316,6 +327,20 @@ document.addEventListener("DOMContentLoaded", function() {
               isCheckBoxActive = false;
           }
         }
+
+      }
+
+      mailBtnElement.addEventListener("click", function() {
+        popUpElement.insertAdjacentHTML("beforeend", popUpSection)
+        const addedContent = document.querySelector(".form-popup-wrap");
+
+        const popUpCloseElement = document.querySelector('.popup-close')
+
+        popUpCloseElement.addEventListener("click", function() {
+          addedContent.remove()
+        })
+
+        
         
       // Required Fields
 
@@ -428,8 +453,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     newBottomPopUpElement.className = 'bottom-popup-flex';
                     newBottomPopUpElement.innerHTML = originalBottomPopUpElementHTML;
                     middlePopUpSectionElement.appendChild(newBottomPopUpElement);
+                    
                 }
+                handleEvents();
+                checkhandle();
+
             }, 5000);
+
+
           }
         } 
     
@@ -438,7 +469,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
       function handleInputChange() {
         const allInputsFilled = checkAllInputsFilled();
+        console.log(allInputsFilled)
         const sendBtnElement = document.querySelector(".send-info-button");
+        const checkBoxElement = document.querySelector('.checkbox')
     
         if (allInputsFilled && checkBoxElement.checked) {
             sendBtnElement.style.backgroundImage = "linear-gradient(15deg, #001682, #3240e5)";
@@ -448,9 +481,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sendBtnElement.setAttribute('type', 'submit');
 
             sendBtnElement.addEventListener('click', mailSuccessfullySent)
-            
-            //after sent succesfully -reset !ERR!
-            //after sent succesfully - send on mail !ERR!
+
 
         } else {
             sendBtnElement.style.backgroundImage = "";
@@ -462,6 +493,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+    handleEvents();
+    checkhandle();
+
+    function handleEvents(){
+      
         const inputContainer = document.querySelector('.mid-popup-flex');
         if (inputContainer) {
           const inputs = inputContainer.querySelectorAll('input, textarea, .checkbox');
@@ -525,11 +561,12 @@ document.addEventListener("DOMContentLoaded", function() {
             
 
           })  
+        }     
 
         });
 
       const popUpSection = ` 
-        <div class="form-popup-wrap " id="popup-for">
+        <form class="form-popup-wrap " id="popup-for">
             <div class="form-popup">
               <div class="top-popup-section">
                 <div class="top-popup-flex">
@@ -606,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
       `
 
       const mailSentGeo =
@@ -647,4 +684,73 @@ document.addEventListener("DOMContentLoaded", function() {
 
        const menuActiveIcon = `
        <svg data-v-42e74cda="" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path data-v-42e74cda="" d="M13.4141 12L17.7071 7.70701C18.0981 7.31601 18.0981 6.68401 17.7071 6.29301C17.3161 5.90201 16.6841 5.90201 16.2931 6.29301L12.0001 10.586L7.70713 6.29301C7.31613 5.90201 6.68413 5.90201 6.29313 6.29301C5.90213 6.68401 5.90213 7.31601 6.29313 7.70701L10.5861 12L6.29313 16.293C5.90213 16.684 5.90213 17.316 6.29313 17.707C6.48813 17.902 6.74413 18 7.00013 18C7.25613 18 7.51213 17.902 7.70713 17.707L12.0001 13.414L16.2931 17.707C16.4881 17.902 16.7441 18 17.0001 18C17.2561 18 17.5121 17.902 17.7071 17.707C18.0981 17.316 18.0981 16.684 17.7071 16.293L13.4141 12Z"></path><mask data-v-42e74cda="" id="mask0_907_111854" maskUnits="userSpaceOnUse" x="5" y="5" width="14" height="13" style="mask-type: luminance;"><path data-v-42e74cda="" d="M13.4141 12L17.7071 7.70701C18.0981 7.31601 18.0981 6.68401 17.7071 6.29301C17.3161 5.90201 16.6841 5.90201 16.2931 6.29301L12.0001 10.586L7.70713 6.29301C7.31613 5.90201 6.68413 5.90201 6.29313 6.29301C5.90213 6.68401 5.90213 7.31601 6.29313 7.70701L10.5861 12L6.29313 16.293C5.90213 16.684 5.90213 17.316 6.29313 17.707C6.48813 17.902 6.74413 18 7.00013 18C7.25613 18 7.51213 17.902 7.70713 17.707L12.0001 13.414L16.2931 17.707C16.4881 17.902 16.7441 18 17.0001 18C17.2561 18 17.5121 17.902 17.7071 17.707C18.0981 17.316 18.0981 16.684 17.7071 16.293L13.4141 12Z"></path></mask><g data-v-42e74cda="" mask="url(#mask0_907_111854)"></g></svg>
+       `
+
+       const headerMenu = 
+       `
+        <div class="mid-footer-responsive">
+                <div class="footer-dropdown footer-products">
+                  <a data-v-174d8ed1="" href="/ge/products/overview" class="footer_dropdown-toggle-kink"> <h2> პროდუქტები </h2></a>
+                  <div>
+                    <svg data-v-174d8ed1="" width="28" height="29" viewbox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="#141719"></path><mask data-v-174d8ed1="" id="mask0_167_5088" maskunits="userSpaceOnUse" x="5" y="10" width="18" height="9" style="mask-type: luminance;"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="white"></path></mask><g data-v-174d8ed1="" mask="url(#mask0_167_5088)"></g></svg>
+                  </div>
+                </div>
+                <div class="footer-dropdown footer-lifestyle">
+                  <a data-v-174d8ed1="" href="/ge/products/overview" class="footer_dropdown-toggle-kink"> <h2> Lifestyle </h2></a>
+                  <div>
+                    <svg data-v-174d8ed1="" width="28" height="29" viewbox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="#141719"></path><mask data-v-174d8ed1="" id="mask0_167_5088" maskunits="userSpaceOnUse" x="5" y="10" width="18" height="9" style="mask-type: luminance;"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="white"></path></mask><g data-v-174d8ed1="" mask="url(#mask0_167_5088)"></g></svg>
+                  </div>
+                </div>
+                <div class="footer-dropdown footer-concept-space">
+                  <a data-v-174d8ed1="" href="/ge/products/overview" class="footer_dropdown-toggle-kink"> <h2> კოცეპტის სივრცე </h2></a>
+                  <div>
+                    <svg data-v-174d8ed1="" width="28" height="29" viewbox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="#141719"></path><mask data-v-174d8ed1="" id="mask0_167_5088" maskunits="userSpaceOnUse" x="5" y="10" width="18" height="9" style="mask-type: luminance;"><path data-v-174d8ed1="" d="M13.9986 18.6685C13.7326 18.6685 13.4678 18.5787 13.2519 18.3979L6.25193 12.5645C5.75726 12.1527 5.68959 11.4165 6.10259 10.9219C6.51443 10.4272 7.24943 10.3607 7.74526 10.7725L14.0114 15.9945L20.2671 10.9604C20.7688 10.5567 21.5038 10.636 21.9074 11.1377C22.3111 11.6394 22.2318 12.3732 21.7301 12.778L14.7301 18.4107C14.5166 18.5822 14.2576 18.6685 13.9986 18.6685Z" fill="white"></path></mask><g data-v-174d8ed1="" mask="url(#mask0_167_5088)"></g></svg>
+                  </div>
+                </div>
+                <div class="footer-dropdown footer-contact-us">
+                  <div class="footer-info">
+                    <div class="footer-title">
+                      <a data-v-174d8ed1="" href="/ge/products/overview" class="footer_dropdown-toggle-kink"> <h2> დაგვიკავშირდით: </h2></a>
+                    </div>
+
+                    <address class="footer-info-flex">
+                      <a class="footer-info-item">
+                        <div data-v-174d8ed1="" class="icon w-embed"><svg data-v-174d8ed1="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" d="M11.5987 14.6676C5.93736 14.6676 1.33203 10.0622 1.33203 4.4009C1.33203 2.70956 2.70803 1.33423 4.3987 1.33423C4.57203 1.33423 4.74336 1.3489 4.90936 1.37756C5.07136 1.40356 5.2347 1.4449 5.3927 1.49956C5.61003 1.5749 5.7727 1.7569 5.82403 1.9809L6.73736 5.9569C6.78736 6.17556 6.72403 6.4049 6.5687 6.56756C6.47736 6.66223 6.47536 6.66423 5.6487 7.0969C6.31803 8.54623 7.48136 9.70556 8.90203 10.3522C9.3347 9.5249 9.33736 9.52223 9.43203 9.43156C9.59536 9.27556 9.82537 9.2149 10.0434 9.2629L14.0194 10.1756C14.2427 10.2269 14.4247 10.3896 14.5 10.6062C14.5547 10.7636 14.5954 10.9262 14.6227 11.0936C14.6507 11.2582 14.6654 11.4289 14.6654 11.6009C14.6654 13.2922 13.29 14.6676 11.5987 14.6676Z" fill="#555F62"></path><mask data-v-174d8ed1="" id="mask0_167_7524" maskUnits="userSpaceOnUse" x="1" y="1" width="14" height="14" style="mask-type: luminance;"><path data-v-174d8ed1="" d="M11.5987 14.6676C5.93736 14.6676 1.33203 10.0622 1.33203 4.4009C1.33203 2.70956 2.70803 1.33423 4.3987 1.33423C4.57203 1.33423 4.74336 1.3489 4.90936 1.37756C5.07136 1.40356 5.2347 1.4449 5.3927 1.49956C5.61003 1.5749 5.7727 1.7569 5.82403 1.9809L6.73736 5.9569C6.78736 6.17556 6.72403 6.4049 6.5687 6.56756C6.47736 6.66223 6.47536 6.66423 5.6487 7.0969C6.31803 8.54623 7.48136 9.70556 8.90203 10.3522C9.3347 9.5249 9.33736 9.52223 9.43203 9.43156C9.59536 9.27556 9.82537 9.2149 10.0434 9.2629L14.0194 10.1756C14.2427 10.2269 14.4247 10.3896 14.5 10.6062C14.5547 10.7636 14.5954 10.9262 14.6227 11.0936C14.6507 11.2582 14.6654 11.4289 14.6654 11.6009C14.6654 13.2922 13.29 14.6676 11.5987 14.6676Z" fill="white"></path></mask><g data-v-174d8ed1="" mask="url(#mask0_167_7524)"></g></svg></div>
+                        <p> +995 32 2 27 27 00 </p>
+                      </a>
+                      <a class="footer-info-item">
+                        <div data-v-174d8ed1="" class="icon w-embed"><svg data-v-174d8ed1="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" d="M11.9987 2.66772H3.9987C2.52536 2.66772 1.33203 3.86106 1.33203 5.33439V10.6744C1.33203 12.1477 2.52536 13.3411 3.9987 13.3411H11.9987C13.472 13.3411 14.6654 12.1477 14.6654 10.6744V5.33439C14.6654 3.86106 13.472 2.66772 11.9987 2.66772ZM11.9987 4.00106C12.0787 4.00106 12.152 4.01439 12.232 4.02106L7.9987 6.56106L3.75203 4.02772C3.83203 4.01439 3.9187 4.00106 4.00536 4.00106H12.0054H11.9987Z" fill="#555F62"></path></svg></div>
+                        <p> info@tbcconcept.ge </p>
+                      </a>
+                      <a class="footer-info-item">
+                        <div data-v-174d8ed1="" class="icon w-embed"><svg data-v-174d8ed1="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-174d8ed1="" fill-rule="evenodd" clip-rule="evenodd" d="M2.66797 6.61623C2.66797 3.70356 5.06064 1.33423 8.0013 1.33423C10.942 1.33423 13.3346 3.70356 13.3346 6.61623C13.3346 10.2656 8.6353 14.3356 8.4353 14.5069C8.30997 14.6142 8.15597 14.6676 8.0013 14.6676C7.84664 14.6676 7.69264 14.6142 7.5673 14.5069C7.3673 14.3356 2.66797 10.2656 2.66797 6.61623ZM8.0013 8.66756C6.71464 8.66756 5.66797 7.62089 5.66797 6.33423C5.66797 5.04756 6.71464 4.0009 8.0013 4.0009C9.28797 4.0009 10.3346 5.04756 10.3346 6.33423C10.3346 7.62089 9.28797 8.66756 8.0013 8.66756ZM8.0013 5.33423C7.44997 5.33423 7.0013 5.7829 7.0013 6.33423C7.0013 6.88556 7.44997 7.33423 8.0013 7.33423C8.55264 7.33423 9.0013 6.88556 9.0013 6.33423C9.0013 5.7829 8.55264 5.33423 8.0013 5.33423Z" fill="#555F62"></path><mask data-v-174d8ed1="" id="mask0_167_7533" maskUnits="userSpaceOnUse" x="2" y="1" width="12" height="14" style="mask-type: luminance;"><path data-v-174d8ed1="" fill-rule="evenodd" clip-rule="evenodd" d="M2.66797 6.61623C2.66797 3.70356 5.06064 1.33423 8.0013 1.33423C10.942 1.33423 13.3346 3.70356 13.3346 6.61623C13.3346 10.2656 8.6353 14.3356 8.4353 14.5069C8.30997 14.6142 8.15597 14.6676 8.0013 14.6676C7.84664 14.6676 7.69264 14.6142 7.5673 14.5069C7.3673 14.3356 2.66797 10.2656 2.66797 6.61623ZM8.0013 8.66756C6.71464 8.66756 5.66797 7.62089 5.66797 6.33423C5.66797 5.04756 6.71464 4.0009 8.0013 4.0009C9.28797 4.0009 10.3346 5.04756 10.3346 6.33423C10.3346 7.62089 9.28797 8.66756 8.0013 8.66756ZM8.0013 5.33423C7.44997 5.33423 7.0013 5.7829 7.0013 6.33423C7.0013 6.88556 7.44997 7.33423 8.0013 7.33423C8.55264 7.33423 9.0013 6.88556 9.0013 6.33423C9.0013 5.7829 8.55264 5.33423 8.0013 5.33423Z" fill="white"></path></mask><g data-v-174d8ed1="" mask="url(#mask0_167_7533)"></g></svg></div>
+                        <p> ფილიალები </p>
+                      </a>
+                    </address>
+
+                    <p class="footer-header">  სოციალური ქსელები  </p>
+                    <div class="social-media-flex">
+                      <a class="social-media-item" href="https://www.facebook.com/tbcconcept">  
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_167_7547)">
+                            <path d="M9.83464 9.00163H11.5013L12.168 6.33496H9.83464V5.00163C9.83464 4.31496 9.83464 3.66829 11.168 3.66829H12.168V1.42829C11.9506 1.39963 11.13 1.33496 10.2633 1.33496C8.4533 1.33496 7.16797 2.43963 7.16797 4.46829V6.33496H5.16797V9.00163H7.16797V14.6683H9.83464V9.00163Z"></path>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_167_7547">
+                              <rect width="16" height="16" fill="white" transform="translate(0.5 0.000976562)"></rect>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                      <a class="social-media-item" href="https://www.instagram.com/tbc_concept/"> 
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="bi bi-instagram">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
        `
