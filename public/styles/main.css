@@ -1495,7 +1495,7 @@ footer {
 .navbar-dropdown {
   box-sizing: border-box;
   display: flex;
-  padding: 36px 45px;
+  padding: 36px 0px;
   line-height: 34px;
   border-top: 0.8px solid rgb(85, 95, 98);
   
@@ -1523,10 +1523,21 @@ footer {
   transition : height  2s ease-in-out ;
 }
 
-.footer-dropdown-list, .navbar-dropdown-list{
+.footer-dropdown-list{
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-bottom: 20px;
+}
+
+.navbar-dropdown-list {
+  display: none;
+}
+
+.navbar-dropdown-list.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding-bottom: 20px;
 }
 

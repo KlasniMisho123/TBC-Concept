@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const navBarBtnElement = document.querySelector(`.navbar-btn-div`)
 
-    let navBarActive = false;
 
     navBarBtnElement.addEventListener("click", navBarBtnhandle);
 
@@ -144,7 +143,10 @@ document.addEventListener("DOMContentLoaded", function() {
     navBarLineMid.classList.toggle('active');
     navBarLineBot.classList.toggle('active');
 
+    let navBarActive = false;
+
     navBarActive = navBarBtnElement.classList.contains('active');
+
 
   if (navBarActive) {
     navbarDropdownElement.insertAdjacentHTML("afterend", navbarDropdownitemElement)
@@ -155,9 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       const navbarDropdownElement = document.querySelector(`.${element.classList[1]}`);
   
-      let isActiveDropdown = false
-
-      // checkpoint
+      let isActiveDropdown = false;
 
       function navbardropdownClickHandle(){
         const navbarDropdownDivElement = document.querySelector(`.${element.classList[1]}-div`);
@@ -165,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   
           const navbarDropdownItem = navbarDropdownDivElement.querySelector('.navbar-dropdown-item');
+          const navbarDropdownList = navbarDropdownDivElement.querySelector(".navbar-dropdown-list")
       
           const navbarDropDownImg = document.querySelector(`.${element.classList[1]}-img`)
             
@@ -172,7 +173,8 @@ document.addEventListener("DOMContentLoaded", function() {
           if (!isActiveDropdown) {
             navbarDropdownItem.style.height = 'auto';
             navbarDropdownItem.style.display = 'block';
-      
+            navbarDropdownList.classList.add('active');
+
             navbarDropDownImg.style.transform = 'rotate(180deg)';
             navbarDropDownImg.style.transformOrigin = '';
       
@@ -181,7 +183,8 @@ document.addEventListener("DOMContentLoaded", function() {
           
             navbarDropdownItem.style.height = '0';
             navbarDropdownItem.style.display = 'none';
-      
+            navbarDropdownList.classList.remove('active');
+
             navbarDropDownImg.style.transform = 'rotate(0deg)';
             navbarDropDownImg.style.transformOrigin = '';
             
