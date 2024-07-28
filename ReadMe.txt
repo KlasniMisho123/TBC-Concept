@@ -3,6 +3,8 @@
 პროექტის დასასტარტად მიყევით შემდეგ ინსტრუქციებს:
 
 გახსენით ტერმინალი (Ctrl + Shift + ~)
+
+-git clone https://github.com/KlasniMisho123/TBC-Concept.git 
  
 -cd 'c:/Users/user/Desktop/Projects/Test Projects/TBC-Concept';
 
