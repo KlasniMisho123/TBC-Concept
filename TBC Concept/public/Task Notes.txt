@@ -15,6 +15,4 @@ Tasks-Todo:
 
 notebi - gegastvis:
 
-3. send email ///
-4. dropdown is animacia onclickze //
-5. navbar menushi damateba ///
+//navbar dropdown items.
