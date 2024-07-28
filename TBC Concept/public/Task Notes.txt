@@ -16,9 +16,5 @@ Tasks-Todo:
 notebi - gegastvis:
 
 3. send email ///
-
-// responsive
-
-6. responsive fit // 1250px
-7. scroll problem on responsive// scrolldownze zemot tovebs.
-8. header width 1000px -- 1000px +
+4. dropdown is animacia onclickze //
+5. navbar menushi damateba ///

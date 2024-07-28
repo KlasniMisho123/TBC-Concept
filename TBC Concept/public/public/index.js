@@ -79,22 +79,74 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // onclick footer-responsive
 
-    const footerDropdownElements = document.querySelectorAll(`.footer-dropdown`)
-
-    function dropDownFun() {
-
-      console.log()
-    }
+    const footerDropdownElements = document.querySelectorAll('.footer-dropdown');
 
     footerDropdownElements.forEach(element => {
-      const footerDropdownElement = document.querySelector(`.${element.classList[1]}`)
-      footerDropdownElement.addEventListener('click', function () {
-        console.log(element.classList[1])
-      })
+
+    const footerDropdownElement = document.querySelector(`.${element.classList[1]}`);
+
+    let isActiveDropdown = false
+
+    footerDropdownElement.addEventListener('click', function () {
+    const footerDropdownDivElement = document.querySelector(`.${element.classList[1]}-div`);
+
+    const footerDropdownItem = footerDropdownDivElement.querySelector('.footer-dropdown-item');
+
+    const footerDropDownImg = document.querySelector(`.${element.classList[1]}-img`)
       
+
+    if (!isActiveDropdown) {
+      footerDropdownItem.style.height = 'auto';
+      footerDropdownItem.style.display = 'block';
+
+      footerDropDownImg.style.transform = 'rotate(180deg)';
+      footerDropDownImg.style.transformOrigin = '';
+
+      isActiveDropdown = true;
+    } else {
+    
+      footerDropdownItem.style.height = '0';
+      footerDropdownItem.style.display = 'none';
+
+      footerDropDownImg.style.transform = 'rotate(0deg)';
+      footerDropDownImg.style.transformOrigin = '';
+      
+      isActiveDropdown = false;
+    }
+
     });
+  });
+
+  // navbar on click
+
+  const navBarBtnElement = document.querySelector(`.navbar-btn-div`)
+
+  let navBarActive = false;
+
+navBarBtnElement.addEventListener("click", navBarBtnhandle);
+
+function navBarBtnhandle() {
+  const navBarLineTop = document.querySelector('.navbar-line-1');
+  const navBarLineMid = document.querySelector('.navbar-line-2');
+  const navBarLineBot = document.querySelector('.navbar-line-3');
+  
+  navBarBtnElement.classList.toggle('active');
+  
+  navBarLineTop.classList.toggle('active');
+  navBarLineMid.classList.toggle('active');
+  navBarLineBot.classList.toggle('active');
+
+  navBarActive = navBarBtnElement.classList.contains('active');
+
+  if (navBarActive) {
+    console.log("Active");
+  } else {
+    console.log("Inactive");
+  }
+}
 
 
+  //*
     
 
     // start grabbable flex

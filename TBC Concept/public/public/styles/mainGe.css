@@ -942,8 +942,8 @@ footer {
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
-  padding: 45px 47px 0 47px;
-  height: 135px;
+  padding: 45px 47px 45px 47px;
+  height: 45px;
 }
 .leanguage-div {
   display: flex;
@@ -1483,6 +1483,36 @@ footer {
 
 
 }
+
+.dropdown-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-dropdown-item{
+  padding: 0 45px 0px 45px;
+  display: none;
+  height: 0px;
+  overflow: hidden;
+  transition : height  2s ease-in-out ;
+}
+
+.footer-dropdown-list{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+.footer-dropdown-link {
+  color: rgb(85, 95, 98);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.footer-dropdown-link p {
+  font-size: 18px;
+}
+
 .mid-footer-responsive {
     display: none;
 }
@@ -1490,7 +1520,6 @@ footer {
 .app-add-mobile-responsive {
   display: none;
 }
-
 
 .headers-buttons {
   display: flex;
@@ -1642,33 +1671,72 @@ footer {
   .navbar-btn {
     display: flex;
     align-items: center;
-    
   }
+
   .navbar-btn-div {
-    height: 40px !important;
+    height: 16px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 8px;
     gap: 5px;
+  }
+
+  .navbar-btn-div:active {
+   background-color: rgb(94, 149, 226);
   }
   
   .navbar-line-1 {
     height: 2px !important;
     width: 11px;
     background-color: rgb(85, 95, 98);
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+    transform: rotate(0deg);
   }
   
   .navbar-line-2 {
     height: 2px !important;
     width: 20px;
     background-color: rgb(85, 95, 98);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 100%;
   }
   
   .navbar-line-3 {
+    box-sizing: border-box;
     height: 2px !important;
     width: 15px;
     background-color: rgb(85, 95, 98);
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+    transform: rotate(0deg);
+    transform: margin ;
   }
+
+  .navbar-line-1.active {
+    width: 100%;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    margin-left: -1.5px;
+    margin-bottom: -1.5px;
+  }
+
+  .navbar-line-2.active {
+    opacity: 0%;
+  }
+
+  .navbar-line-3.active {
+    width: 100%;
+    transform: rotate(45deg);
+    transform-origin: center;
+    margin-left: -1.5px;
+    margin-top: -1.5px;
+  }
+
+  .navbar-btn-div.active{
+    gap: 0px;
+    padding: 0px;
+  }
+
 
   .flex-leanguage-element {
     display: none;
@@ -1831,6 +1899,7 @@ footer {
     color: black;
     text-decoration: none;
   }
+
 
 }
 
